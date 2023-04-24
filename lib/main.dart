@@ -4,7 +4,7 @@ import 'package:audioplayers/audioplayers.dart';
 void main() => runApp(XylophoneApp());
 
 class XylophoneApp extends StatelessWidget {
-  TextButton soundNumber(int num) {
+  Expanded soundNumber(int num) {
     List colors = [
       Colors.brown,
       Colors.blueGrey,
@@ -14,18 +14,20 @@ class XylophoneApp extends StatelessWidget {
       Colors.amberAccent,
       Colors.red
     ];
-    var button = TextButton(
-      onPressed: () async {
-        final player = AudioPlayer();
-        // add one since the note files start from 0
-        player.play(AssetSource('note${num + 1}.wav'));
-      },
-      style: TextButton.styleFrom(
-        elevation: 5,
-        backgroundColor: colors[num],
+    var button = Expanded(
+      child: TextButton(
+        onPressed: () async {
+          final player = AudioPlayer();
+          // add one since the note files start from 0
+          player.play(AssetSource('note${num + 1}.wav'));
+        },
+        style: TextButton.styleFrom(
+          elevation: 5,
+          backgroundColor: colors[num],
+        ),
+        // add 1 to num so that the notes files start from 1 not 0
+        child: Text("Note ${num + 1}"),
       ),
-      // add 1 to num so that the notes files start from 1 not 0
-      child: Text("Note ${num + 1}"),
     );
     return button;
   }
@@ -36,6 +38,7 @@ class XylophoneApp extends StatelessWidget {
       home: Scaffold(
         body: SafeArea(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               for (int i = 0; i < 7; i++) soundNumber(i),
             ],
