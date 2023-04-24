@@ -2,42 +2,105 @@ import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
 
 void main() => runApp(XylophoneApp());
+playSound(int soundNumber) {
+  final player = AudioPlayer();
+  player.play(AssetSource('note$soundNumber.wav'));
+}
 
 class XylophoneApp extends StatelessWidget {
-  TextButton soundNumber(int num) {
-    List colors = [
-      Colors.brown,
-      Colors.blueGrey,
-      Colors.purple,
-      Colors.brown,
-      Colors.teal,
-      Colors.amberAccent,
-      Colors.red
-    ];
-    var button = TextButton(
-      onPressed: () async {
-        final player = AudioPlayer();
-        // add one since the note files start from 0
-        player.play(AssetSource('note${num + 1}.wav'));
-      },
-      style: TextButton.styleFrom(
-        elevation: 5,
-        backgroundColor: colors[num],
-      ),
-      // add 1 to num so that the notes files start from 1 not 0
-      child: Text("note ${num + 1}"),
-    );
-    return button;
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.black,
         body: SafeArea(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              for (int i = 0; i < 7; i++) soundNumber(i),
+              Expanded(
+                child: TextButton(
+                  onPressed: () async {
+                    playSound(1);
+                  },
+                  style: TextButton.styleFrom(
+                    elevation: 5,
+                    backgroundColor: Colors.red,
+                  ),
+                  child: const Text("note1"),
+                ),
+              ),
+              Expanded(
+                child: TextButton(
+                  onPressed: () async {
+                    playSound(2);
+                  },
+                  style: TextButton.styleFrom(
+                    elevation: 5,
+                    backgroundColor: Colors.amber,
+                  ),
+                  child: const Text("note1"),
+                ),
+              ),
+              Expanded(
+                child: TextButton(
+                  onPressed: () async {
+                    playSound(3);
+                  },
+                  style: TextButton.styleFrom(
+                    elevation: 5,
+                    backgroundColor: Colors.teal,
+                  ),
+                  child: const Text("note1"),
+                ),
+              ),
+              Expanded(
+                child: TextButton(
+                  onPressed: () async {
+                    playSound(4);
+                  },
+                  style: TextButton.styleFrom(
+                    elevation: 5,
+                    backgroundColor: Colors.blueGrey,
+                  ),
+                  child: const Text("note1"),
+                ),
+              ),
+              Expanded(
+                child: TextButton(
+                  onPressed: () async {
+                    playSound(5);
+                  },
+                  style: TextButton.styleFrom(
+                    elevation: 5,
+                    backgroundColor: Colors.deepPurple,
+                  ),
+                  child: const Text("note1"),
+                ),
+              ),
+              Expanded(
+                child: TextButton(
+                  onPressed: () async {
+                    playSound(6);
+                  },
+                  style: TextButton.styleFrom(
+                    elevation: 5,
+                    backgroundColor: Colors.pink,
+                  ),
+                  child: const Text("note1"),
+                ),
+              ),
+              Expanded(
+                child: TextButton(
+                  onPressed: () async {
+                    playSound(7);
+                  },
+                  style: TextButton.styleFrom(
+                    elevation: 5,
+                    backgroundColor: Colors.cyan,
+                  ),
+                  child: const Text("note1"),
+                ),
+              ),
             ],
           ),
         ),
