@@ -17,7 +17,7 @@ Expanded buildKey({MaterialColor color = Colors.red, int soundNumber = 1}) {
         elevation: 5,
         backgroundColor: color,
       ),
-      child: const Text("note1"),
+      child: Text("note $soundNumber"),
     ),
   );
 }

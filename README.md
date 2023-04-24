@@ -1,7 +1,6 @@
 # xylophone
 
-A new Flutter project.
-
+a flutter project representing a xylophone that produces a sound with different keys
 ## Getting Started
 Run:
 - git clone git@github.com:bethel-m/xylophone.git
