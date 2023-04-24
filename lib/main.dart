@@ -7,6 +7,21 @@ playSound(int soundNumber) {
   player.play(AssetSource('note$soundNumber.wav'));
 }
 
+Expanded buildKey({MaterialColor color = Colors.red, int soundNumber = 1}) {
+  return Expanded(
+    child: TextButton(
+      onPressed: () async {
+        playSound(soundNumber);
+      },
+      style: TextButton.styleFrom(
+        elevation: 5,
+        backgroundColor: color,
+      ),
+      child: const Text("note1"),
+    ),
+  );
+}
+
 class XylophoneApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -17,90 +32,13 @@ class XylophoneApp extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Expanded(
-                child: TextButton(
-                  onPressed: () async {
-                    playSound(1);
-                  },
-                  style: TextButton.styleFrom(
-                    elevation: 5,
-                    backgroundColor: Colors.red,
-                  ),
-                  child: const Text("note1"),
-                ),
-              ),
-              Expanded(
-                child: TextButton(
-                  onPressed: () async {
-                    playSound(2);
-                  },
-                  style: TextButton.styleFrom(
-                    elevation: 5,
-                    backgroundColor: Colors.amber,
-                  ),
-                  child: const Text("note1"),
-                ),
-              ),
-              Expanded(
-                child: TextButton(
-                  onPressed: () async {
-                    playSound(3);
-                  },
-                  style: TextButton.styleFrom(
-                    elevation: 5,
-                    backgroundColor: Colors.teal,
-                  ),
-                  child: const Text("note1"),
-                ),
-              ),
-              Expanded(
-                child: TextButton(
-                  onPressed: () async {
-                    playSound(4);
-                  },
-                  style: TextButton.styleFrom(
-                    elevation: 5,
-                    backgroundColor: Colors.blueGrey,
-                  ),
-                  child: const Text("note1"),
-                ),
-              ),
-              Expanded(
-                child: TextButton(
-                  onPressed: () async {
-                    playSound(5);
-                  },
-                  style: TextButton.styleFrom(
-                    elevation: 5,
-                    backgroundColor: Colors.deepPurple,
-                  ),
-                  child: const Text("note1"),
-                ),
-              ),
-              Expanded(
-                child: TextButton(
-                  onPressed: () async {
-                    playSound(6);
-                  },
-                  style: TextButton.styleFrom(
-                    elevation: 5,
-                    backgroundColor: Colors.pink,
-                  ),
-                  child: const Text("note1"),
-                ),
-              ),
-              Expanded(
-                child: TextButton(
-                  onPressed: () async {
-                    playSound(7);
-                  },
-                  style: TextButton.styleFrom(
-                    elevation: 5,
-                    backgroundColor: Colors.cyan,
-                  ),
-                  child: const Text("note1"),
-                ),
-              ),
+              buildKey(color: Colors.red, soundNumber: 1),
+              buildKey(color: Colors.green, soundNumber: 2),
+              buildKey(color: Colors.pink, soundNumber: 3),
+              buildKey(color: Colors.blueGrey, soundNumber: 4),
+              buildKey(color: Colors.amber, soundNumber: 5),
+              buildKey(color: Colors.cyan, soundNumber: 6),
+              buildKey(color: Colors.purple, soundNumber: 7),
             ],
           ),
         ),
