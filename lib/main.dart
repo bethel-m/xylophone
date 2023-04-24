@@ -25,7 +25,7 @@ class XylophoneApp extends StatelessWidget {
         backgroundColor: colors[num],
       ),
       // add 1 to num so that the notes files start from 1 not 0
-      child: Text("note ${num + 1}"),
+      child: Text("Note ${num + 1}"),
     );
     return button;
   }
